@@ -1,14 +1,14 @@
 const dev = {
   apiGateway: {
     REGION: "us-east-1",
-    URL: "wss://kessgs6puj.execute-api.us-east-1.amazonaws.com/prod/"
+    URL: "wss://chat-api.wholenanyards.com/dev/"
   }
 };
 
 const prod = {
   apiGateway: {
     REGION: "us-east-1",
-    URL: "wss://kessgs6puj.execute-api.us-east-1.amazonaws.com/prod/"
+    URL: "wss://chat-api.wholenanyards.com/prod/"
   }
 };
 
