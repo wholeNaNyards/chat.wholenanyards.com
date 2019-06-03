@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import AutoDisconnect from "./AutoDisconnect";
+import config from "./config";
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.connection = new WebSocket(
-      "wss://kessgs6puj.execute-api.us-east-1.amazonaws.com/prod/"
-    );
+    this.connection = new WebSocket(config.apiGateway.URL);
 
     this.connection.onmessage = ({ data }) => {
       const { message, senderConnectionId } = JSON.parse(data);
