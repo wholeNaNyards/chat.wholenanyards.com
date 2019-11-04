@@ -3,6 +3,10 @@ import "./App.css";
 import AutoDisconnect from "./AutoDisconnect";
 import config from "./config";
 
+import Header from "./components/Header";
+
+import "./App.css";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,30 +67,37 @@ class App extends Component {
 
   render() {
     return (
-      <div className="chat-room">
-        <div className="chat-list">
-          {this.state.messages.map(({ message, senderConnectionId }, idx) => (
-            <p key={"msg-" + idx}>
-              <span
-                style={{
-                  color: this.state.senderMap[senderConnectionId],
-                  fontWeight: 700
-                }}
-              >
-                Anonymous
-              </span>
-              : {message}
-            </p>
-          ))}
-        </div>
-        <div className="chat-input">
-          <input
-            type="text"
-            value={this.state.message}
-            onChange={this.handleChange}
-            onKeyPress={this.handleKeyPress}
-          />
-          <button onClick={this.sendMessage}>Send</button>
+      <div>
+        <Header />
+        <div className="mainContainer">
+          <div className="chat-room">
+            <div className="chat-list">
+              {this.state.messages.map(
+                ({ message, senderConnectionId }, idx) => (
+                  <p key={"msg-" + idx}>
+                    <span
+                      style={{
+                        color: this.state.senderMap[senderConnectionId],
+                        fontWeight: 700
+                      }}
+                    >
+                      Anonymous
+                    </span>
+                    : {message}
+                  </p>
+                )
+              )}
+            </div>
+            <div className="chat-input">
+              <input
+                type="text"
+                value={this.state.message}
+                onChange={this.handleChange}
+                onKeyPress={this.handleKeyPress}
+              />
+              <button onClick={this.sendMessage}>Send</button>
+            </div>
+          </div>
         </div>
       </div>
     );
